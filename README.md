@@ -80,6 +80,13 @@ Virtual Lab for simulated comfort, pressure and thermal analysis of footwear sol
   <h2>5. Conclusion</h2>
   <p class="placeholder">Final observations and learning outcomes...</p>
 </section>
+<script>
+const slider = document.getElementById("weightSlider");
+const output = document.getElementById("weightValue");
 
+slider.addEventListener("input", function () {
+  output.innerText = slider.value;
+});
+</script>
 </body>
 </html>
