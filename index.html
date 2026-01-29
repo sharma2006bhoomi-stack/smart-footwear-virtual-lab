@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Footwear Virtual Lab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #eafaf1;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>👟 Smart Footwear Virtual Lab</h1>
+
+<div class="card">
+  <label>User Weight (kg)</label>
+  <input type="range" min="50" max="120" value="70" id="weight">
+  <p>Weight: <span id="wval">70</span> kg</p>
+
+  <label>Heel Thickness (mm)</label>
+  <input type="range" min="15" max="30" value="20" id="heel">
+  <p>Heel: <span id="hval">20</span> mm</p>
+
+  <button onclick="simulate()">Run Simulation</button>
+
+  <div class="result" id="output">
+    Result will appear here 👇
+  </div>
+</div>
+
+<script>
+  const weight = document.getElementById("weight");
+  const heel = document.getElementById("heel");
+  const wval = document.getElementById("wval");
+  const hval = document.getElementById("hval");
+
+  weight.oninput = () => wval.innerText = weight.value;
+  heel.oninput = () => hval.innerText = heel.value;
+
+  function simulate() {
+    let pressureScore = 100 - (weight.value - 50) * 0.5;
+    let comfort = pressureScore + (heel.value * 0.5);
+
+    document.getElementById("output").innerHTML =
+      "<b>Pressure Score:</b> " + pressureScore.toFixed(1) +
+      "<br><b>Comfort Score:</b> " + comfort.toFixed(1);
+  }
+</script>
+
+</body>
+</html>
