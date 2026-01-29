@@ -54,8 +54,22 @@ Virtual Lab for simulated comfort, pressure and thermal analysis of footwear sol
 
 <section>
   <h2>3. User Input Parameters</h2>
-  <p class="placeholder">Weight, foot type, temperature sliders...</p>
+
+  <label><b>User Weight (kg)</b></label><br>
+  <input type="range" id="weight" min="50" max="120" value="70"
+         oninput="document.getElementById('wval').innerText=this.value">
+  <span id="wval">70</span> kg
+  <br><br>
+
+  <label><b>Outside Temperature (°C)</b></label><br>
+  <input type="range" id="temp" min="15" max="45" value="30"
+         oninput="document.getElementById('tval').innerText=this.value">
+  <span id="tval">30</span> °C
+  <br><br>
+
+  <button disabled>Run Simulation</button>
 </section>
+
 
 <section>
   <h2>4. Virtual Simulation Output</h2>
