@@ -71,6 +71,13 @@
       "<br><b>Comfort Score:</b> " + comfort.toFixed(1);
   }
 </script>
+<script>
+const slider = document.getElementById("weightSlider");
+const output = document.getElementById("weightValue");
 
+slider.addEventListener("input", function () {
+  output.innerText = slider.value;
+});
+</script>
 </body>
 </html>
